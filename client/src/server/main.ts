@@ -51,20 +51,16 @@ const run = async () => {
   });
 
   // Forward queries to the Unity web server
-  app.post("/api/query/*", async (req, res) => {
+  app.get("/api/query/*", async (req, res) => {
     try {
       const newURL = new URL(req.url, unityServerUrl).toString();
 
       const options = {
         method: req.method,
-        body: JSON.stringify(req.body),
-        headers: {
-          "Content-Type": "application/json",
-        },
       };
 
       const unityResponse = await fetch(newURL, options);
-
+      
       if (unityResponse.ok) {
         const json = await unityResponse.json();
         res.send(json);

@@ -21,6 +21,8 @@ public class HttpServerBehaviour : MonoBehaviour
                 new SpawnObjectHandler(server, objectContainer, objectPrefab) },
             { typeof(MoveObjectCommand),
                 new MoveObjectHandler(server, objectContainer) },
+            { typeof(ObjectsQuery), 
+                new ObjectsQueryHandler(server, objectContainer) },
         };
 
         server.Start();
