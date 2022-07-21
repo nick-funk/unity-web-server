@@ -1,10 +1,10 @@
 const esbuild = require("esbuild");
 
 esbuild.buildSync({
-  entryPoints: ["src/client/index.ts"],
+  entryPoints: ["src/client/index.tsx"],
   bundle: true,
-  outdir: "output/client/",
-  minify: false,
+  outfile: "output/client/index.js",
+  minify: true,
   sourcemap: true,
   platform: "browser",
   target: "es6",

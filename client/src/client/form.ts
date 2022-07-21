@@ -1,27 +1,17 @@
-export const getIntegerValue = (id: string) => {
-  const el = document.getElementById(id) as HTMLInputElement;
-  if (!el) {
-    throw Error("cannot find element");
-  }
-
+export const getIntegerValue = (value: string, defaultValue = 0) => {
   try {
-    const value = parseInt(el.value);
-    return value;
+    const v = parseInt(value);
+    return v;
   } catch {
-    throw Error("cannot retrieve element value");
+    return defaultValue;
   }
 }
 
-export const getFloatValue = (id: string) => {
-  const el = document.getElementById(id) as HTMLInputElement;
-  if (!el) {
-    throw Error("cannot find element");
-  }
-
+export const getFloatValue = (value: string, defaultValue = 0) => {
   try {
-    const value = parseFloat(el.value);
-    return value;
+    const val = parseFloat(value);
+    return val;
   } catch {
-    throw Error("cannot retrieve element value");
+    return defaultValue;
   }
 }
